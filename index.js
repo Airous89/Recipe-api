@@ -11,6 +11,7 @@ function queryParams(params) {
 
 
 function displayResults(responseJson, maxResults){
+  console.log(responseJson);
   $('#results-list').empty();
   $('.js-error').empty();
   for(let i = 0; i < responseJson.meals.length && i < maxResults; i++){
@@ -24,7 +25,7 @@ function displayResults(responseJson, maxResults){
         <ul class="ingredients"></ul>
       `)
           for(let j = 1; j < 21; j++){
-           $('.ingredients').append(responseJson.meals[i][`strIngredient${j}`])
+           $('.ingredients').append([`<li>responseJson.meals[i]strIngredient${j}</li>`])
            };
       };
 
@@ -51,7 +52,7 @@ function getRecipe(tacos, maxResults){
    .then(responseJson => 
       displayResults(responseJson,maxResults))
   .catch(err =>{
-    $('#js-error-message').text(`Something went wrong: ${err.message}`);
+    $('#js-error-message').text(`Something went wrong: ${erfishr.message}`);
   });
 }
 
