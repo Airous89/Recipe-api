@@ -25,7 +25,9 @@ function displayResults(responseJson, maxResults){
         <ul class="ingredients"></ul>
       `)
           for(let j = 1; j < 21; j++){
-           $('.ingredients').append(`<li>responseJson.meals[i].strIngredient${j}</li>`)
+            let ingredientNum = "strIngredient" + j;
+            let ingredientString = responseJson.meals[i][ingredientNum];
+             $('.ingredients').append(`<li>${ingredientString}</li>`);
            };
       };
 
