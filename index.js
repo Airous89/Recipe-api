@@ -52,7 +52,7 @@ function getRecipe(tacos, maxResults){
    .then(responseJson => 
       displayResults(responseJson,maxResults))
   .catch(err =>{
-    $('#js-error-message').text(`Something went wrong: ${erfishr.message}`);
+    $('#js-error-message').text(`Something went wrong: ${err.message}`);
   });
 }
 
