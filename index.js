@@ -1,7 +1,7 @@
 'use strict';
 
-const apikey = '65fce80e490c4cb58c8fdd77edc4677d';
-const searchUrl = 'https://api.spoonacular.com/recipes/complexSearch';
+const url = 'https://www.themealdb.com/api/json/v1/1/search.php';
+
 
 
 function queryParams(params) {
@@ -10,43 +10,48 @@ function queryParams(params) {
 }
 
 
-function displayResults(responseJson){
+function displayResults(responseJson, maxResults){
   $('#results-list').empty();
   $('.js-error').empty();
-  for(let i = 0; i < responseJson.results.length; i++){
-    $('#results-list').append(
-      `<li><h3><a href="${responseJson.results[i].id}">${responseJson.results[i].title}</a></h3>
-      <img src='${responseJson.results[i].image}'>
-      </li>`
-    )};
+  for(let i = 0; i < responseJson.meals.length && i < maxResults; i++){
+        $('#results-list').append(
+          `<li><h3><a href="${responseJson.meals[i].strSource}">${responseJson.meals[i].strMeal}</a></h3>
+          <img src='${responseJson.meals[i].strMealThumb}'> <iframe width="420" height="315"
+          src="${responseJson.meals[i].strYoutube}">
+          </iframe>
+         <ul>${responseJson.meals[i].strCategory}</ul>
+        </li> <p>${responseJson.meals[i].strInstructions}</p>
+        <ul class="ingredients"></ul>
+      `)
+          for(let j = 1; j < 21; j++){
+           $('.ingredients').append(responseJson.meals[i][`strIngredient${j}`])
+           };
+      };
+
 
    $('#results').removeClass('hidden');
-
 };
 
-function getRecipe(tacos,maxResults,){
+
+function getRecipe(tacos, maxResults){
   const params ={
-    query: tacos,
-    number: maxResults,
+    s: tacos,
+    value: maxResults
   };
 
 
   const queryString = queryParams(params)
-  const url = searchUrl+'?'+queryString +'&apiKey='+ apikey;
+  const searchUrl = url+'?'+queryString;
 
-  console.log(url);
+  console.log(searchUrl);
 
 
-  fetch(url)
-  .then(response =>{
-    if(response.ok){
-      return response.json();
-    }
-    throw new Error(response.statusText);
-  })
-  .then(responseJson => displayResults(responseJson))
+  fetch(searchUrl)
+  .then(response => response.json())
+   .then(responseJson => 
+      displayResults(responseJson,maxResults))
   .catch(err =>{
-    $('#js-error-message').text(`Something went wrong: ${err.message}`);
+    $('#js-error-message').text(`Something went wrong: ${erfishr.message}`);
   });
 }
 
