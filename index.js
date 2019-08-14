@@ -32,7 +32,7 @@ function displayResults(responseJson, maxResults){
       };
 
 
-   $('#results').removeClass('hidden');
+   $('#results').removeClass();
 };
 
 
