@@ -14,13 +14,14 @@ function displayResults(responseJson, maxResults){
   console.log(responseJson);
   $('#results-list').empty();
   $('.js-error').empty();
-  for(let i = 0; i < responseJson.meals.length && i < maxResults; i++){
-        $('#results-list').append(
-          `<li><h3><a href="${responseJson.meals[i].strSource}">${responseJson.meals[i].strMeal}</a></h3>
-          <img src='${responseJson.meals[i].strMealThumb}' height="300" width="400">
-         <ul>${responseJson.meals[i].strCategory}</ul>
-        </li> <p>${responseJson.meals[i].strInstructions}</p>
-        <div class="ingredients"></div>
+ for(let i = 0; i < responseJson.meals.length && i < maxResults; i++){ 
+        $('#results-list').append( 
+        `<li><h3><a href="${responseJson.meals[i].strSource}">${responseJson.meals[i].strMeal}</a></h3> 
+            <img src='${responseJson.meals[i].strMealThumb}' height="300" width="400"> 
+           <h3>${responseJson.meals[i].strCategory}</h3> 
+            <p>${responseJson.meals[i].strInstructions}</p> 
+        <div class="ingredients"></div> 
+      </li> 
       `)
       var div = document.createElement('div');
       div.setAttribute('class', 'ingredients');
