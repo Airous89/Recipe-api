@@ -24,10 +24,12 @@ function displayResults(responseJson, maxResults){
         </li> <p>${responseJson.meals[i].strInstructions}</p>
         <ul class="ingredients"></ul>
       `)
-          for(let j = 1; j < 21; j++){
-            let ingredientNum = "strIngredient" + j;
-            let ingredientString = responseJson.meals[i][ingredientNum];
-             $('.ingredients').append(`<li>${ingredientString}</li>`);
+      var div = document.createElement('div');
+      div.setAttribute('class', 'ingredients');
+      div.setAttribute('id', `ingredients${i}`);
+        for(let j = 1; j < 21; j++){
+            div.appendChild(<li>${ingredientString}</li>)
+            $('#result-list').append(div )
            };
       };
 
