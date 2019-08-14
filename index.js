@@ -17,9 +17,7 @@ function displayResults(responseJson, maxResults){
   for(let i = 0; i < responseJson.meals.length && i < maxResults; i++){
         $('#results-list').append(
           `<li><h3><a href="${responseJson.meals[i].strSource}">${responseJson.meals[i].strMeal}</a></h3>
-          <img src='${responseJson.meals[i].strMealThumb}' height="300" width="400"> <iframe width="420" height="315"
-          src="${responseJson.meals[i].strYoutube}">
-          </iframe>
+          <img src='${responseJson.meals[i].strMealThumb}' height="300" width="400">
          <ul>${responseJson.meals[i].strCategory}</ul>
         </li> <p>${responseJson.meals[i].strInstructions}</p>
         <div class="ingredients"></div>
