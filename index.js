@@ -22,14 +22,14 @@ function displayResults(responseJson, maxResults){
           </iframe>
          <ul>${responseJson.meals[i].strCategory}</ul>
         </li> <p>${responseJson.meals[i].strInstructions}</p>
-        <ul class="ingredients"></ul>
+        <div class="ingredients"></div>
       `)
       var div = document.createElement('div');
       div.setAttribute('class', 'ingredients');
       div.setAttribute('id', `ingredients${i}`);
         for(let j = 1; j < 21; j++){
-            div.appendChild(`<li>${ingredientString}</li>`)
-            $('#result-list').append(div )
+            div.appendChild(<span>${ingredientString}</span>)
+            $('#result-list').append(div)
            };
       };
 
