@@ -2,28 +2,62 @@
     box-sizing: border-box;
   }
   
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  button, input[type="text"] {
-    padding: 5px;
-  }
+body{
+    font-family: 'Lora', serif;
+    text-align: center;
+    font-size: 20px;
+    line-height: 1.9;
+    padding: 30px;
+}
 
+#nav{
+  font-family: 'Istok Web', sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  position: fixed;
+  background-color: #FFE376;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  overflow: auto;
+}
 
- button:hover {
-    cursor: pointer;
-  }
+h1{
+  text-decoration: #7071B3;
+}
+
+section #results-list li{
+  list-style: none;
+}
+
+section #results-list a{
+  align-items: center;
+  text-decoration: none;
+}
+
+img{
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+  border-style: double;
+  border-width: thick;
+  padding: 30px;
+}
+
   
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .error-message {
-      color: red;
-  }
-  
-  .hidden {
+.hidden {
     display: none;
+}
+
+/*tablet and desktop mode*/
+
+@media only screen and (min-width: 600px) {
+
+  #nav *{
+    display: inline;
   }
+    
+}
