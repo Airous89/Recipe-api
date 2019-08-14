@@ -27,7 +27,6 @@ function displayResults(responseJson, maxResults){
       div.setAttribute('class', 'ingredients');
       div.setAttribute('id', `ingredients${i}`);
         for(let j = 1; j < 21; j++){
-            div.appendChild(`<span>${ingredientString}</span>`)
             $('#result-list').append(div)
            };
       };
