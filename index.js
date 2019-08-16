@@ -15,13 +15,24 @@ function displayResults(responseJson, maxResults){
   
   for(let i = 0; i < maxResults; i++){
     console.log( maxResults);
+    let video = responseJson.meals[i].strYoutube;
+    let videoCode = video.split('=')[1];
+    let youtube_url = `https://www.youtube.com/embed/${videoCode}`;
     
     $('#results-list').append( 
       `<li>
         <h3>
           <a href="${responseJson.meals[i].strSource}">${responseJson.meals[i].strMeal}</a>
         </h3> 
-        <img src='${responseJson.meals[i].strMealThumb}' height="300" width="400"> 
+        <img src='${responseJson.meals[i].strMealThumb}' height="300" width="400">
+        <iframe
+        class="youtubeDemonstration"
+        width="540"
+        height="305"
+        src=${youtube_url}
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe> 
         <h3>${responseJson.meals[i].strCategory}</h3> 
         <p>${responseJson.meals[i].strInstructions}</p> 
         <ul class="ingredient-list" id="test${i}"></ul>
