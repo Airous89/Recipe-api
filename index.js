@@ -27,8 +27,8 @@ function displayResults(responseJson, maxResults){
         <img src='${responseJson.meals[i].strMealThumb}' height="300" width="400">
         <iframe
         class="youtubeDemonstration"
-        width="540"
-        height="305"
+        width="490"
+        height="304"
         src=${youtube_url}
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
