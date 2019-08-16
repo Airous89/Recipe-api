@@ -25,8 +25,7 @@ function displayResults(responseJson, maxResults){
           <a href="${responseJson.meals[i].strSource}">${responseJson.meals[i].strMeal}</a>
         </h3> 
         <img src='${responseJson.meals[i].strMealThumb}' height="300" width="400">
-        <iframe
-        class="youtubeDemonstration"
+        <iframe class="youtubeDemonstration"
         width="490"
         height="304"
         src=${youtube_url}
