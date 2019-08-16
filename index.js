@@ -30,7 +30,7 @@ function displayResults(responseJson, maxResults){
         height="304"
         src=${youtube_url}
         frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allow="autoplay; picture-in-picture"
         allowfullscreen></iframe> 
         <h3>${responseJson.meals[i].strCategory}</h3> 
         <p>${responseJson.meals[i].strInstructions}</p> 
